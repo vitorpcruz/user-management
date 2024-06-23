@@ -3,7 +3,7 @@ package db
 import (
 	"log"
 
-	"github.com/vitorpcruz/sso/internal/domain/domain"
+	entity "github.com/vitorpcruz/sso/internal/domain/entity"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -18,12 +18,12 @@ func InitDB() *gorm.DB {
 	}
 
 	err = db.AutoMigrate(
-		&domain.User{},
-		&domain.Customer{},
-		&domain.System{},
-		&domain.System{},
-		&domain.SystemUser{},
-		&domain.SystemUserRole{},
+		&entity.User{},
+		&entity.Customer{},
+		&entity.System{},
+		&entity.System{},
+		&entity.SystemUser{},
+		&entity.SystemUserRole{},
 	)
 	if err != nil {
 		log.Fatal("error on migrate entities", err)
