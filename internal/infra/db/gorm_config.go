@@ -3,14 +3,16 @@ package db
 import (
 	"log"
 
+	"github.com/vitorpcruz/sso/config"
 	entity "github.com/vitorpcruz/sso/internal/domain/entity"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 func InitDB() *gorm.DB {
+	dsn := config.MySqlDSN()
 	db, err := gorm.Open(
-		mysql.Open("user:pass1234567@tcp(127.0.0.1:3306)/sso?charset=utf8mb4&parseTime=True&loc=Local"),
+		mysql.Open(dsn),
 		&gorm.Config{},
 	)
 	if err != nil {
