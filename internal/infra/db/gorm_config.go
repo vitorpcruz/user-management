@@ -21,9 +21,6 @@ func InitDB() *gorm.DB {
 		&entity.User{},
 		&entity.Customer{},
 		&entity.System{},
-		&entity.System{},
-		&entity.SystemUser{},
-		&entity.SystemUserRole{},
 	)
 	if err != nil {
 		log.Fatal("error on migrate entities", err)
